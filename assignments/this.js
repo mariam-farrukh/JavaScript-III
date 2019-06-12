@@ -12,7 +12,7 @@
     and we call it with 'new'. 
 
 * 4. Explicit Binding: Giving a specific object or variable a new context. Something
-    that can't be applied to anything else adn you can use methods on that specific
+    that can't be applied to anything else and you can use methods on that specific
     object or variable
 *
 * write out a code example of each explanation above
@@ -54,4 +54,13 @@ Jojo.speak();
 
 // Principle 4
 
-// code example for Explicit Binding
+const person = {
+    name:"Heimer"
+  }
+  function introduction(hobby1, hobby2, hobby3, hobby4){
+    return `Hello, my name is ${this.name} and I like to: ${hobby1}, ${hobby2}, ${hobby3}, and ${hobby4}.`;
+  }
+  
+  const hobbies =["place turrets", "shoot rockets", "stun wtih grenades", "upgrade material"]
+  //console.log(introduction.call(person,"HTML","CSS","JS"));
+  console.log(introduction.call(person,...hobbies));
