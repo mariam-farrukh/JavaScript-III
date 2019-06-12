@@ -10,7 +10,7 @@
 
 * 3. New Binding: Involves constructor functions creates an object,
     and we call it with 'new'. 
-    
+
 * 4. Explicit Binding: Giving a specific object or variable a new context. Something
     that can't be applied to anything else adn you can use methods on that specific
     object or variable
@@ -20,15 +20,37 @@
 
 // Principle 1
 
-// code example for Window Binding
+function hello(){
+    return `Hello ${this}`;
+}
+console.log(hello()); // returns 'Hello, [Object Window]'
 
 // Principle 2
 
-// code example for Implicit Binding
+const petBird = {
+    name: "Jojo",
+    age: 19,
+    food: "Jalapenos",
+    feed: function(){
+        return `${this.name} loves to eat ${this.food}`
+    }
+}
+console.log(petBird.feed())
 
 // Principle 3
 
-// code example for New Binding
+function BirdTalking(person) {
+    this.greeting = 'Hello ';
+    this.person = person;
+    this.speak = function() {
+      console.log(this.greeting + this.person);
+      console.log(this);
+    };
+  }
+  
+  const Jojo = new BirdTalking('Mariam');
+  
+Jojo.speak();
 
 // Principle 4
 
